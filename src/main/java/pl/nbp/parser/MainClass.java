@@ -15,8 +15,8 @@ public class MainClass {
         Params params = ParamsParser.parseArguments(args[0], args[1], args[2]);
         try {
             ExchangeRateDataResolver.ExchangeRateData exchangeRateData = ExchangeRateDataResolver.resolve(params);
-            System.out.println(exchangeRateData.getBuyAverage());
-            System.out.println(exchangeRateData.getSellStandardDeviation());
+            System.out.format("%.4f\n", exchangeRateData.getBuyAverage());
+            System.out.format("%.4f\n", exchangeRateData.getSellStandardDeviation());
         } catch (IOException e) {
             LOGGER.error("Error while parsing params");
         }
