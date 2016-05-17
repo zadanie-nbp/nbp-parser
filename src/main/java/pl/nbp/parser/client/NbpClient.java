@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class NbpClient {
-    static final String BASE_NBP_URI = "http://www.nbp.pl/kursy/xml";
+    private static final String BASE_NBP_URI = "http://www.nbp.pl/kursy/xml";
 
-    public static List<String> getAvailableFiles(LocalDate dateFrom, LocalDate dateTo) throws IOException {
+    private static List<String> getAvailableFiles(LocalDate dateFrom, LocalDate dateTo) throws IOException {
         int year = dateFrom.getYear();
         int endYear = dateTo.getYear();
         List<String> availableFiles = new LinkedList<>();

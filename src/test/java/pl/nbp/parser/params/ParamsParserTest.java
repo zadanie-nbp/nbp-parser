@@ -10,8 +10,8 @@ public class ParamsParserTest {
     public void shouldParseArguments() {
         Params expectedParams = new Params(
                 "PLN",
-                LocalDate.of(2015,01,02),
-                LocalDate.of(2015,05,10)
+                LocalDate.of(2015,1,2),
+                LocalDate.of(2015,5,10)
         );
 
         Params params = ParamsParser.parseArguments("PLN", "2015-01-02", "2015-05-10");

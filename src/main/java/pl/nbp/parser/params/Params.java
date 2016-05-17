@@ -3,9 +3,9 @@ package pl.nbp.parser.params;
 import java.time.LocalDate;
 
 public class Params {
-    String currency;
-    LocalDate dateFrom;
-    LocalDate dateTo;
+    private String currency;
+    private LocalDate dateFrom;
+    private LocalDate dateTo;
 
     public Params() {
     }

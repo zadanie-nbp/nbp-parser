@@ -9,7 +9,7 @@ import pl.nbp.parser.params.ParamsParser;
 import java.io.IOException;
 
 public class MainClass {
-    static final Logger LOGGER = LoggerFactory.getLogger(ExchangeRateDataResolver.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ExchangeRateDataResolver.class);
 
     public static void main(String[] args) {
         Params params = ParamsParser.parseArguments(args[0], args[1], args[2]);
