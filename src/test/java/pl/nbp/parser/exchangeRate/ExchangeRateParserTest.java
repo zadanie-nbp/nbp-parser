@@ -1,8 +1,8 @@
-package pl.nbp.parser.parser;
+package pl.nbp.parser.exchangeRate;
 
 import org.hamcrest.Matchers;
 import org.junit.Test;
-import pl.nbp.parser.ExchangeRate;
+import pl.nbp.parser.exchangeRate.parser.ExchangeRateParser;
 
 import javax.xml.bind.JAXBException;
 import java.util.Arrays;

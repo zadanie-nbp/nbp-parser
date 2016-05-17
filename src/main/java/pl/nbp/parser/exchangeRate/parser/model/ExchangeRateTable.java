@@ -1,4 +1,4 @@
-package pl.nbp.parser.parser.model;
+package pl.nbp.parser.exchangeRate.parser.model;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;

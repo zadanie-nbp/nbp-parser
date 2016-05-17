@@ -1,7 +1,7 @@
-package pl.nbp.parser.parser;
+package pl.nbp.parser.exchangeRate.parser;
 
-import pl.nbp.parser.ExchangeRate;
-import pl.nbp.parser.parser.model.ExchangeRateTable;
+import pl.nbp.parser.exchangeRate.ExchangeRate;
+import pl.nbp.parser.exchangeRate.parser.model.ExchangeRateTable;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

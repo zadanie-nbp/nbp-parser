@@ -1,4 +1,4 @@
-package pl.nbp.parser;
+package pl.nbp.parser.exchangeRate;
 
 public class ExchangeRate {
     private String currencyCode;
