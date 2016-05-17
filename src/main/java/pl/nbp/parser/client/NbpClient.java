@@ -28,7 +28,7 @@ public class NbpClient {
         return Arrays.asList(HttpClient.getStringFromUri(String.format("%s/%s", BASE_NBP_URI, filename)).split("\r\n"));
     }
 
-    public static List<String> getExchangeRatesFilesBetweenDates(LocalDate dateFrom, LocalDate dateTo) throws IOException {
+    public static List<String> getExchangeRatesFilenamesBetweenDates(LocalDate dateFrom, LocalDate dateTo) throws IOException {
         List<String> availableFiles = getAvailableFiles(dateFrom, dateTo);
         return availableFiles.stream()
                 .filter(s -> s.startsWith("c"))

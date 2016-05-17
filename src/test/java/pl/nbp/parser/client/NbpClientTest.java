@@ -21,7 +21,7 @@ public class NbpClientTest {
                 "c005z160111"
         );
 
-        List<String> resultFiles = NbpClient.getExchangeRatesFilesBetweenDates(
+        List<String> resultFiles = NbpClient.getExchangeRatesFilenamesBetweenDates(
                 LocalDate.of(2016, 1, 5),
                 LocalDate.of(2016, 1, 11)
         );
@@ -56,7 +56,7 @@ public class NbpClientTest {
                 "c005z160111"
         );
 
-        List<String> resultFiles = NbpClient.getExchangeRatesFilesBetweenDates(
+        List<String> resultFiles = NbpClient.getExchangeRatesFilenamesBetweenDates(
                 LocalDate.of(2015, 12, 20),
                 LocalDate.of(2016, 1, 11)
         );

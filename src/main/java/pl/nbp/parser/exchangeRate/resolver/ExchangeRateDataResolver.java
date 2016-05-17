@@ -18,7 +18,7 @@ public class ExchangeRateDataResolver {
     private static final Logger LOGGER = LoggerFactory.getLogger(ExchangeRateDataResolver.class);
 
     public static ExchangeRateData resolve(Params params) throws IOException {
-        List<String> exchangeDateFileNames = NbpClient.getExchangeRatesFilesBetweenDates(
+        List<String> exchangeDateFileNames = NbpClient.getExchangeRatesFilenamesBetweenDates(
                 params.getDateFrom(),
                 params.getDateTo()
         );
