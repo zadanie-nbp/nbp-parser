@@ -4,18 +4,32 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class NbpClient {
     static final String BASE_NBP_URI = "http://www.nbp.pl/kursy/xml";
 
-    static List<String> getAvailableFiles() throws IOException {
-        return Arrays.asList(HttpClient.getStringFromUri(String.format("%s/%s", BASE_NBP_URI, "dir.txt")).split("\r\n"));
+    public static List<String> getAvailableFiles(LocalDate dateFrom, LocalDate dateTo) throws IOException {
+        int year = dateFrom.getYear();
+        int endYear = dateTo.getYear();
+        List<String> availableFiles = new LinkedList<>();
+        while(year <= endYear) {
+            availableFiles.addAll(getAvailableFilesForYear(year));
+            year++;
+        }
+        return availableFiles;
+    }
+
+    private static List<String> getAvailableFilesForYear(int year) throws IOException {
+        int currentYear = LocalDate.now().getYear();
+        String filename = year == currentYear ? "dir.txt" : String.format("dir%d.txt", year);
+        return Arrays.asList(HttpClient.getStringFromUri(String.format("%s/%s", BASE_NBP_URI, filename)).split("\r\n"));
     }
 
     public static List<String> getExchangeRatesFilesBetweenDates(LocalDate dateFrom, LocalDate dateTo) throws IOException {
-        List<String> availableFiles = getAvailableFiles();
+        List<String> availableFiles = getAvailableFiles(dateFrom, dateTo);
         return availableFiles.stream()
                 .filter(s -> s.startsWith("c"))
                 .filter(s -> {
@@ -25,6 +39,7 @@ public class NbpClient {
                 })
                 .collect(Collectors.toList());
     }
+
 
     public static String getFileContent(String filename) throws IOException {
         return HttpClient.getStringFromUri(String.format("%s/%s.xml", BASE_NBP_URI , filename));

@@ -39,5 +39,29 @@ public class NbpClientTest {
         assertThat(resultTableNumberLine.trim(), Matchers.containsString(expectedTableNumber));
     }
 
+    @Test
+    public void shouldReturnCurrencyExchangeFilesFilteredByDatesWithYears() throws IOException {
+        List<String> expectedFiles = Arrays.asList(
+                "c247z151221",
+                "c248z151222",
+                "c249z151223",
+                "c250z151224",
+                "c251z151228",
+                "c252z151229",
+                "c253z151230",
+                "c254z151231",
+                "c002z160105",
+                "c003z160107",
+                "c004z160108",
+                "c005z160111"
+        );
+
+        List<String> resultFiles = NbpClient.getExchangeRatesFilesBetweenDates(
+                LocalDate.of(2015, 12, 20),
+                LocalDate.of(2016, 1, 11)
+        );
+
+        assertThat(resultFiles, Matchers.is(expectedFiles));
+    }
 
 }
